@@ -7,8 +7,13 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import twitter4j.TwitterObjectFactory;
+import twitter4j.User;
+
+import java.util.List;
 
 /**
  * Created by Yari_Dev on 10/13/15.
@@ -21,10 +26,9 @@ public class SampleController {
     @Autowired
     TwitterUserServices service;
 
-    @RequestMapping("/")
-    @ResponseBody
-    String home() {
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @ResponseBody List<User>  home() {
 
-        return "YO YO the size is " + TwitterObjectFactory.getRawJSON(service.getUserResource("Uyghur"));
+        return service.getUserResource("Uyghur");
     }
 }
