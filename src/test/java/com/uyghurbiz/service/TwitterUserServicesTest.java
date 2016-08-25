@@ -1,15 +1,19 @@
 package com.uyghurbiz.service;
 
 import com.uyghurbiz.AbstractSpringContext;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import twitter4j.User;
 
 import java.util.List;
 import java.util.logging.Logger;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 /**
@@ -34,7 +38,11 @@ public class TwitterUserServicesTest extends AbstractSpringContext {
      */
     @Test
     public void testServiceIsUP() {
-        List<User> listOfUser = twitterUserServices.getUserResource("Uyghur");
+        List<User> listOfUser = twitterUserServices.getUserResource("India", "Uyghur");
         assertNotEquals("The result list should not be empty", 0, listOfUser.size());
+    }
+    @Test
+    public void testConfig() {
+
     }
 }

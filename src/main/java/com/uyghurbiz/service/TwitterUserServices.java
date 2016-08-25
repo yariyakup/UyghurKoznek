@@ -31,7 +31,7 @@ public class TwitterUserServices {
      * @param keyWord
      * @return
      */
-    public List<User> getUserResource(String keyWord) {
+    public List<User> getUserResource(String... keyWord) {
         List<User> listOfUser = null;
 
         try {

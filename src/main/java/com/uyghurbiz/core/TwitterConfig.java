@@ -1,5 +1,6 @@
 package com.uyghurbiz.core;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import twitter4j.Twitter;
@@ -12,6 +13,15 @@ import twitter4j.conf.ConfigurationBuilder;
  */
 @Configuration("twitterConfig")
 public class TwitterConfig {
+    @Value("${twiter.consumerKey}")
+    private String oAuthConsumerKey;
+    @Value("${twiter.authconsumersecret}")
+    private String oAuthConsumerSecret;
+    @Value("${twiter.oauthaccesstoken}")
+    private String oAuthAccessToken;
+    @Value("${twiter.oauthaccesstokensecret}")
+    private String oAuthAccessTokenSecret;
+
 
     /**
      * Remember dont push this credential keep it in your local
@@ -21,10 +31,10 @@ public class TwitterConfig {
     private ConfigurationBuilder configBuilder() {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey("")
-                .setOAuthConsumerSecret("")
-                .setOAuthAccessToken("")
-                .setOAuthAccessTokenSecret("")
+                .setOAuthConsumerKey(oAuthConsumerKey)
+                .setOAuthConsumerSecret(oAuthConsumerSecret)
+                .setOAuthAccessToken(oAuthAccessToken)
+                .setOAuthAccessTokenSecret(oAuthAccessTokenSecret)
                 .setJSONStoreEnabled(true);
 
         return cb;

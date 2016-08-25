@@ -1,7 +1,12 @@
 package com.uyghurbiz.core;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.io.ClassPathResource;
+
 
 /**
  * Core Engine Configuration for the entire application
@@ -11,4 +16,12 @@ import org.springframework.context.annotation.Import;
 @Configuration("coreConfig")
 @Import({RepositoryConfig.class, TwitterServiceConfig.class})
 public class CoreEngineConfig {
+
+
+    @Bean
+    public PropertySourcesPlaceholderConfigurer properties() {
+        PropertySourcesPlaceholderConfigurer c = new PropertySourcesPlaceholderConfigurer();
+        c.setLocation(new ClassPathResource("api.properties"));
+     return c;
+  }
 }
