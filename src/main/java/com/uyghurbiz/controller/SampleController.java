@@ -25,8 +25,8 @@ public class SampleController {
     TwitterUserServicesImpl service;
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
-    @ResponseBody List<User>  home() {
+    @ResponseBody String home() {
 
-        return service.getUserResource("Uyghur");
+        return "Welcome lets start";
     }
 }
