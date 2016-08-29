@@ -1,7 +1,7 @@
 package com.uyghurbiz.controller;
 
 import com.uyghurbiz.core.CoreEngineConfig;
-import com.uyghurbiz.service.TwitterUserServices;
+import com.uyghurbiz.service.TwitterUserServicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Import;
@@ -22,7 +22,7 @@ import java.util.List;
 public class SampleController {
 
     @Autowired
-    TwitterUserServices service;
+    TwitterUserServicesImpl service;
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     @ResponseBody List<User>  home() {
