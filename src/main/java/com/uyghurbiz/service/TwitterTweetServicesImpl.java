@@ -25,10 +25,14 @@ import java.io.InputStream;
 @Service("tweetService")
 public class TwitterTweetServicesImpl implements TweetsResources {
 
+    /**
+     * Logger for this services
+     */
+    private static Logger LOGGER = LogManager.getLogger(TwitterTweetServicesImpl.class.getName());
+
     @Autowired
     Twitter twitter;
 
-    
     public OEmbed getOEmbed(OEmbedRequest req) throws TwitterException {
         return null;
     }

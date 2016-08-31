@@ -18,7 +18,7 @@ public class TwitterPlacesGeoResourcesServicesImpl implements PlacesGeoResources
     /**
      * Logger for this services
      */
-    private static Logger LOGGER = LogManager.getLogger(TwitterSuggestedUsersResourcesServicesImpl.class.getName());
+    private static Logger LOGGER = LogManager.getLogger(TwitterPlacesGeoResourcesServicesImpl.class.getName());
 
     @Autowired
     private Twitter twitter;

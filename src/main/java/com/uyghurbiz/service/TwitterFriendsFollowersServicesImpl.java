@@ -20,7 +20,7 @@ public class TwitterFriendsFollowersServicesImpl implements FriendsFollowersReso
     /**
      * Logger for this services
      */
-    private static Logger LOGGER = LogManager.getLogger(TwitterSuggestedUsersResourcesServicesImpl.class.getName());
+    private static Logger LOGGER = LogManager.getLogger(TwitterFriendsFollowersServicesImpl.class.getName());
 
     @Autowired
     private Twitter twitter;

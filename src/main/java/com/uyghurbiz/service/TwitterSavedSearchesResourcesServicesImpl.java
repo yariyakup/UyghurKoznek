@@ -16,7 +16,7 @@ public class TwitterSavedSearchesResourcesServicesImpl implements SavedSearchesR
     /**
      * Logger for this services
      */
-    private static Logger LOGGER = LogManager.getLogger(TwitterSuggestedUsersResourcesServicesImpl.class.getName());
+    private static Logger LOGGER = LogManager.getLogger(TwitterSavedSearchesResourcesServicesImpl.class.getName());
 
     @Autowired
     private Twitter twitter;

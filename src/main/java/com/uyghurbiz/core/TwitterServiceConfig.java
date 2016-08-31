@@ -2,7 +2,7 @@ package com.uyghurbiz.core;
 
 import com.uyghurbiz.service.TwitterFavoriteServicesImpl;
 import com.uyghurbiz.service.TwitterTimelinesResourcesServicesImpl;
-import com.uyghurbiz.service.TwitterUserServicesImpl;
+import com.uyghurbiz.service.TwitterUserResourcesServicesImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -20,8 +20,8 @@ public class TwitterServiceConfig {
      * @return
      */
     @Bean
-    public TwitterUserServicesImpl twitterTestUserService() {
-        return new TwitterUserServicesImpl();
+    public TwitterUserResourcesServicesImpl twitterUserResourcesServices() {
+        return new TwitterUserResourcesServicesImpl();
     }
 
     @Bean

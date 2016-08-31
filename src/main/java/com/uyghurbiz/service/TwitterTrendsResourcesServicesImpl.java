@@ -1,9 +1,11 @@
 package com.uyghurbiz.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import twitter4j.GeoLocation;
 import twitter4j.Location;
 import twitter4j.ResponseList;
 import twitter4j.Trends;
+import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.api.TrendsResources;
 import org.apache.log4j.LogManager;
@@ -13,6 +15,14 @@ import org.apache.log4j.Logger;
  * Created by Yari_Dev on 10/12/15.
  */
 public class TwitterTrendsResourcesServicesImpl implements TrendsResources {
+
+
+    @Autowired
+    Twitter twitter;
+    /**
+     * Logger for this services
+     */
+    private static Logger LOGGER = LogManager.getLogger(TwitterTrendsResourcesServicesImpl.class.getName());
     /**
      * Returns the top 10 trending topics for a specific WOEID, if trending information is available for it.<br>
      * The response is an array of "trend" objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on <a href="http://search.twitter.com/">Twitter Search</a>, and the Twitter Search URL.<br>
