@@ -1,5 +1,6 @@
 package com.uyghurbiz.core;
 
+import com.google.gson.Gson;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -22,5 +23,10 @@ public class CoreEngineConfig {
         PropertySourcesPlaceholderConfigurer c = new PropertySourcesPlaceholderConfigurer();
         c.setLocation(new ClassPathResource("api.properties"));
         return c;
+    }
+    @Bean
+    public Gson gson() {
+        Gson gson = new Gson();
+        return gson;
     }
 }

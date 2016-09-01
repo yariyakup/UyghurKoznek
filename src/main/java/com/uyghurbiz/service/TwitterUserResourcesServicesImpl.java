@@ -400,14 +400,10 @@ public class TwitterUserResourcesServicesImpl implements UsersResources {
      */
     public ResponseList<User> lookupUsers(String... screenNames) throws TwitterException {
         ResponseList<User> listOfUser = null;
-
         try {
-
-                LOGGER.info("Looking up user for: " + screenNames.length);
-                listOfUser = twitter.users().lookupUsers(screenNames);
-
+             listOfUser = twitter.users().lookupUsers(screenNames);
         } catch (TwitterException e) {
-            LOGGER.error("Cant get the list of user based on key: " + screenNames);
+            LOGGER.error(e.getErrorMessage());
         }
 
         return listOfUser;
