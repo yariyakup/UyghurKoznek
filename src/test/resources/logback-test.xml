@@ -16,6 +16,9 @@
     </appender>
     <logger name="org.springframework" level="OFF"/>
     <logger name="org.apache.catalina.startup.DigesterFactory" level="OFF"/>
+    <logger name="com.uyghurbiz.service" level="debug">
+        <appender-ref ref="CONSOLE" />
+    </logger>
 
     <root level="INFO">
         <appender-ref ref="FILE"/>

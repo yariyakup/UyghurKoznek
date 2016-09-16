@@ -22,7 +22,6 @@ import java.io.InputStream;
 /**
  * Created by Yari_Dev on 10/12/15.
  */
-@Service("tweetService")
 public class TwitterTweetServicesImpl implements TweetsResources {
 
     /**

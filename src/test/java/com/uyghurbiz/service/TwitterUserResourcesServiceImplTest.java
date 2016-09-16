@@ -42,7 +42,7 @@ public class TwitterUserResourcesServiceImplTest extends AbstractSpringContext {
      * This is the twitterService services
      */
     @Autowired
-    public UsersResources twitterUserResourcesServices;
+    public UsersResources twitterUserResourcesService;
 
     /**
      * Randomly generate string of word and search for the users.
@@ -56,7 +56,7 @@ public class TwitterUserResourcesServiceImplTest extends AbstractSpringContext {
             index++;
         }
         try {
-            ResponseList<User> list = twitterUserResourcesServices.lookupUsers(users);
+            ResponseList<User> list = twitterUserResourcesService.lookupUsers(users);
             Gson gson = new Gson();
 
             if (list != null) {
