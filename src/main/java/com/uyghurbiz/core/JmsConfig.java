@@ -3,6 +3,7 @@ package com.uyghurbiz.core;
 import com.uyghurbiz.jms.TestQueeListener;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,9 @@ import org.springframework.jms.listener.DefaultMessageListenerContainer;
 @Configuration("jmsConfig")
 @ComponentScan("com.uyghurbiz.jms")
 public class JmsConfig {
+
+    @Autowired
+    TestQueeListener testQueeListener;
 
     @Bean
     public ActiveMQConnectionFactory activeMQConnectionFactory() {
@@ -44,7 +48,7 @@ public class JmsConfig {
         DefaultMessageListenerContainer defaultMessageListenerContainer =  new DefaultMessageListenerContainer();
         defaultMessageListenerContainer.setDestination(testDesitination());
         defaultMessageListenerContainer.setConnectionFactory(connectionFactory());
-        defaultMessageListenerContainer.setMessageListener(new TestQueeListener());
+        defaultMessageListenerContainer.setMessageListener(testQueeListener);
         defaultMessageListenerContainer.setSubscriptionName("Yari's test message listener");
         return defaultMessageListenerContainer;
     }

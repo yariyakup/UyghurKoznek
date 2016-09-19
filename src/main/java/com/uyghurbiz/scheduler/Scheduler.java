@@ -1,6 +1,7 @@
 package com.uyghurbiz.scheduler;
 
 import com.google.gson.Gson;
+import com.uyghurbiz.jms.MessageSender;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -33,6 +34,9 @@ public class Scheduler {
     @Autowired
     Gson gson;
 
+    @Autowired
+    MessageSender messageSender;
+
     @Scheduled(fixedRate = 5000)
     public void getUser() {
         int index = 0;
@@ -46,7 +50,7 @@ public class Scheduler {
             if (list != null) {
                 ListIterator<User> iterator = list.listIterator();
                 while (iterator.hasNext()) {
-                    LOGGER.info(gson.toJson(iterator.next()));
+                    messageSender.sendUserObject(iterator.next());
                 }
             }
         } catch (TwitterException e) {
