@@ -28,8 +28,7 @@ public class TestQueeListener implements MessageListener {
     public void onMessage(Message message) {
         ObjectMessage message1 = (ObjectMessage)message;
         try {
-            gson.toJson("Yari");
-            LOGGER.info(gson.toJson(message1.getObject().toString()));
+            LOGGER.info(gson.toJson(message1.getObject()));
         } catch (JMSException e) {
             e.printStackTrace();
         }

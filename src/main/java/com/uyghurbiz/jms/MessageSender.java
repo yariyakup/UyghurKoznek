@@ -25,10 +25,7 @@ public class MessageSender {
     public void send(String message) {
        jmsTemplate.convertAndSend(message);
     }
-    public void sendObject(Status status) {
+    public void sendObject(Object status) {
         jmsTemplate.convertAndSend(status);
-    }
-    public void sendUserObject(User user) {
-        jmsTemplate.convertAndSend(user);
     }
 }

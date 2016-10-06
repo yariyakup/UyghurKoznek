@@ -4,6 +4,8 @@ import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 import com.google.gson.Gson;
 import com.uyghurbiz.AbstractSpringContext;
+import com.uyghurbiz.jms.MessageSender;
+import org.apache.commons.lang.math.RandomUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -11,9 +13,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import twitter4j.Location;
+import twitter4j.Trends;
 import twitter4j.TwitterException;
 import twitter4j.api.TrendsResources;
 import java.util.Iterator;
+import java.util.Random;
 
 /**
  * Created by yyakup on 9/1/16.
@@ -23,9 +27,6 @@ public class TwitterTrendsResourcesServicesImplTest extends AbstractSpringContex
 
     @Autowired
     TrendsResources trendsResources;
-
-    @Autowired
-    Gson gson;
 
     /**
      * Logger for the TestCase
@@ -58,11 +59,24 @@ public class TwitterTrendsResourcesServicesImplTest extends AbstractSpringContex
         try {
             Iterator<Location> iterator = trendsResources.getAvailableTrends().listIterator();
             while (iterator.hasNext()) {
-                 LOGGER.debug(gson.toJson(iterator.next()));
+                 messageSender.sendObject(iterator.next());
             }
         } catch (TwitterException e) {
             LOGGER.error(e.getErrorMessage());
         }
+
+    }
+    @Test
+    public void getTrendsByPlace() {
+        try {
+            int randomWoeid = RandomUtils.nextInt(9000000) + 1000000;
+            LOGGER.debug("the random woeid:" + randomWoeid);
+            Trends trends = trendsResources.getPlaceTrends(1);
+            messageSender.sendObject(trends);
+        } catch (TwitterException e) {
+            e.printStackTrace();
+        }
+
 
     }
 }
