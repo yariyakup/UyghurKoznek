@@ -21,7 +21,7 @@ import java.util.ListIterator;
  * Created by yyakup on 8/31/16.
  */
 @Component
-@EnableScheduling
+//@EnableScheduling
 public class Scheduler {
     /**
      * Logger for the TestCase
