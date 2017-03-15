@@ -1,5 +1,6 @@
 package com.uyghurbiz.core;
 
+import com.google.gson.Gson;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -13,7 +14,7 @@ import org.springframework.core.io.ClassPathResource;
  * Created by Yari_Dev on 10/11/15.
  */
 @Configuration("coreConfig")
-@Import({RepositoryConfig.class, TwitterServiceConfig.class})
+@Import({RepositoryConfig.class, TwitterServiceConfig.class, JmsConfig.class, SpringMongoConfig.class})
 public class CoreEngineConfig {
 
 
@@ -22,5 +23,10 @@ public class CoreEngineConfig {
         PropertySourcesPlaceholderConfigurer c = new PropertySourcesPlaceholderConfigurer();
         c.setLocation(new ClassPathResource("api.properties"));
         return c;
+    }
+    @Bean
+    public Gson gson() {
+        Gson gson = new Gson();
+        return gson;
     }
 }

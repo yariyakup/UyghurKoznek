@@ -16,7 +16,7 @@ public class TwitterSearchResourceServicesImpl implements SearchResource {
     /**
      * Logger for this services
      */
-    private static Logger LOGGER = LogManager.getLogger(TwitterSuggestedUsersResourcesServicesImpl.class.getName());
+    private static Logger LOGGER = LogManager.getLogger(TwitterSearchResourceServicesImpl.class.getName());
 
     @Autowired
     private Twitter twitter;

@@ -22,7 +22,7 @@ public class TwitterFavoriteServicesImpl implements FavoritesResources {
     /**
      * Logger for this services
      */
-    private static Logger LOGGER = LogManager.getLogger(TwitterSuggestedUsersResourcesServicesImpl.class.getName());
+    private static Logger LOGGER = LogManager.getLogger(TwitterFavoriteServicesImpl.class.getName());
 
     @Autowired
     private Twitter twitter;

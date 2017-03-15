@@ -3,6 +3,7 @@ package com.uyghurbiz.service;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import twitter4j.AccountSettings;
 import twitter4j.IDs;
 import twitter4j.PagableResponseList;
@@ -14,6 +15,7 @@ import twitter4j.api.UsersResources;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -396,7 +398,14 @@ public class TwitterUserResourcesServicesImpl implements UsersResources {
      * @since Twitter4J 2.1.1
      */
     public ResponseList<User> lookupUsers(String... screenNames) throws TwitterException {
-        return null;
+        ResponseList<User> listOfUser = null;
+        try {
+             listOfUser = twitter.users().lookupUsers(screenNames);
+        } catch (TwitterException e) {
+            LOGGER.error(e.getErrorMessage());
+        }
+
+        return listOfUser;
     }
 
     /**
@@ -535,23 +544,6 @@ public class TwitterUserResourcesServicesImpl implements UsersResources {
      */
     public void updateProfileBanner(InputStream image) throws TwitterException {
 
-    }
-    /**
-     * This will get the UserResources
-     *
-     * @param keyWord
-     * @return
-     */
-    public List<User> getUserResource(String keyWord) {
-        List<User> listOfUser = null;
-        //   twitter.
-        try {
-            listOfUser = twitter.users().lookupUsers(keyWord);
-        } catch (TwitterException e) {
-            LOGGER.error("Cant get the list of user based on key: " + keyWord);
-        }
-
-        return listOfUser;
     }
 
 }

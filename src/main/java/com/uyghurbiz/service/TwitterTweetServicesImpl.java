@@ -22,13 +22,16 @@ import java.io.InputStream;
 /**
  * Created by Yari_Dev on 10/12/15.
  */
-@Service("tweetService")
 public class TwitterTweetServicesImpl implements TweetsResources {
+
+    /**
+     * Logger for this services
+     */
+    private static Logger LOGGER = LogManager.getLogger(TwitterTweetServicesImpl.class.getName());
 
     @Autowired
     Twitter twitter;
 
-    
     public OEmbed getOEmbed(OEmbedRequest req) throws TwitterException {
         return null;
     }

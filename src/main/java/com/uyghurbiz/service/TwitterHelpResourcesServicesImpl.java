@@ -19,7 +19,7 @@ public class TwitterHelpResourcesServicesImpl implements HelpResources {
     /**
      * Logger for this services
      */
-    private static Logger LOGGER = LogManager.getLogger(TwitterSuggestedUsersResourcesServicesImpl.class.getName());
+    private static Logger LOGGER = LogManager.getLogger(TwitterHelpResourcesServicesImpl.class.getName());
 
     @Autowired
     private Twitter twitter;

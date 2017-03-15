@@ -1,9 +1,14 @@
 package com.uyghurbiz.service;
 
+import com.google.gson.Gson;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import twitter4j.GeoLocation;
 import twitter4j.Location;
 import twitter4j.ResponseList;
 import twitter4j.Trends;
+import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.api.TrendsResources;
 import org.apache.log4j.LogManager;
@@ -13,6 +18,13 @@ import org.apache.log4j.Logger;
  * Created by Yari_Dev on 10/12/15.
  */
 public class TwitterTrendsResourcesServicesImpl implements TrendsResources {
+
+    @Autowired
+    Twitter twitter;
+    /**
+     * Logger for this services
+     */
+    private static Logger LOGGER = LogManager.getLogger(TwitterTrendsResourcesServicesImpl.class.getName());
     /**
      * Returns the top 10 trending topics for a specific WOEID, if trending information is available for it.<br>
      * The response is an array of "trend" objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on <a href="http://search.twitter.com/">Twitter Search</a>, and the Twitter Search URL.<br>
@@ -26,7 +38,7 @@ public class TwitterTrendsResourcesServicesImpl implements TrendsResources {
      * @since Twitter4J 3.0.2
      */
     public Trends getPlaceTrends(int woeid) throws TwitterException {
-        return null;
+        return twitter.getPlaceTrends(woeid);
     }
 
     /**
@@ -39,7 +51,7 @@ public class TwitterTrendsResourcesServicesImpl implements TrendsResources {
      * @since Twitter4J 2.1.1
      */
     public ResponseList<Location> getAvailableTrends() throws TwitterException {
-        return null;
+        return twitter.getAvailableTrends();
     }
 
     /**
@@ -55,6 +67,6 @@ public class TwitterTrendsResourcesServicesImpl implements TrendsResources {
      * @since Twitter4J 3.0.2
      */
     public ResponseList<Location> getClosestTrends(GeoLocation location) throws TwitterException {
-        return null;
+         return twitter.getClosestTrends(location);
     }
 }

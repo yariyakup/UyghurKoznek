@@ -19,7 +19,7 @@ public class TwitterDirectMessageServicesImpl implements DirectMessagesResources
     /**
      * Logger for this services
      */
-    private static Logger LOGGER = LogManager.getLogger(TwitterSuggestedUsersResourcesServicesImpl.class.getName());
+    private static Logger LOGGER = LogManager.getLogger(TwitterDirectMessageServicesImpl.class.getName());
 
     @Autowired
     private Twitter twitter;

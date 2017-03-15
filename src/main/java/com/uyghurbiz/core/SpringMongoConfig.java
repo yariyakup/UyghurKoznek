@@ -2,6 +2,8 @@ package com.uyghurbiz.core;
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 
@@ -13,6 +15,7 @@ import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 @Configuration("mongoConfig")
 public class SpringMongoConfig extends AbstractMongoConfiguration {
 
+    private String mongoHost;
     /**
      * By Default MongoDb create db named test in local
      *
@@ -20,7 +23,7 @@ public class SpringMongoConfig extends AbstractMongoConfiguration {
      */
     @Override
     protected String getDatabaseName() {
-        return "test";
+        return "Test";
     }
 
     /**
@@ -30,8 +33,9 @@ public class SpringMongoConfig extends AbstractMongoConfiguration {
      * @throws Exception
      */
     @Override
+    @Bean
     public Mongo mongo() throws Exception {
-        Mongo mongo = new MongoClient("localhost", 27017);
+        Mongo mongo = new MongoClient("10.22.104.209", 27017);
 
         return mongo;
     }
