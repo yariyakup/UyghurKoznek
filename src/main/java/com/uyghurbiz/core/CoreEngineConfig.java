@@ -14,7 +14,7 @@ import org.springframework.core.io.ClassPathResource;
  * Created by Yari_Dev on 10/11/15.
  */
 @Configuration("coreConfig")
-@Import({RepositoryConfig.class, TwitterServiceConfig.class, JmsConfig.class, SpringMongoConfig.class})
+@Import({RepositoryConfig.class, TwitterServiceConfig.class, SpringMongoConfig.class})
 public class CoreEngineConfig {
 
 

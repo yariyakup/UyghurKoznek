@@ -50,7 +50,8 @@ public class Scheduler {
             if (list != null) {
                 ListIterator<User> iterator = list.listIterator();
                 while (iterator.hasNext()) {
-                    messageSender.sendObject(iterator.next());
+                 //   messageSender.sendObject(iterator.next());
+                    LOGGER.info(iterator.next());
                 }
             }
         } catch (TwitterException e) {

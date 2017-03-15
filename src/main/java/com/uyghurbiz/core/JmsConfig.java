@@ -14,36 +14,37 @@ import org.springframework.jms.listener.DefaultMessageListenerContainer;
 /**
  * Created by yyakup on 9/16/16.
  */
-@Configuration("jmsConfig")
-@ComponentScan("com.uyghurbiz.jms")
+//@Configuration("jmsConfig")
+//@ComponentScan("com.uyghurbiz.jms")
 public class JmsConfig {
 
-    @Autowired
+   // @Autowired
     TestQueeListener testQueeListener;
 
-    @Bean
+    //@Bean
     public ActiveMQConnectionFactory activeMQConnectionFactory() {
-        return new ActiveMQConnectionFactory("tcp://localhost:61616");
+        return  null;
+       // return new ActiveMQConnectionFactory("tcp://localhost:61616");
 
     }
-    @Bean
+    //@Bean
     public CachingConnectionFactory connectionFactory() {
 
      return new CachingConnectionFactory(activeMQConnectionFactory());
     }
-    @Bean
+    //@Bean
     public ActiveMQQueue testDesitination() {
 
         return new ActiveMQQueue("TestRequest");
     }
-    @Bean
+  //  @Bean
     public JmsTemplate jmsTemplate() {
         JmsTemplate jmsTemplate = new JmsTemplate();
         jmsTemplate.setConnectionFactory(connectionFactory());
         jmsTemplate.setDefaultDestination(testDesitination());
         return jmsTemplate;
     }
-    @Bean
+   // @Bean
     public DefaultMessageListenerContainer defaultMessageListenerContainer() {
         DefaultMessageListenerContainer defaultMessageListenerContainer =  new DefaultMessageListenerContainer();
         defaultMessageListenerContainer.setDestination(testDesitination());
