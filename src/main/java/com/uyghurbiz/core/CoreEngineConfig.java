@@ -21,7 +21,7 @@ public class CoreEngineConfig {
     @Bean
     public PropertySourcesPlaceholderConfigurer properties() {
         PropertySourcesPlaceholderConfigurer c = new PropertySourcesPlaceholderConfigurer();
-        c.setLocation(new ClassPathResource("api.properties"));
+        c.setLocation(new ClassPathResource("Api.properties"));
         return c;
     }
     @Bean
