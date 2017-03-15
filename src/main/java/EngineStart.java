@@ -14,17 +14,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAutoConfiguration
 @ComponentScan("com.uyghurbiz.core")
 public class EngineStart {
-    // private static Class<SampleController> applicationClass = SampleController.class;
-
     public static void main(String[] args) {
         SpringApplication.run(EngineStart.class, args);
 
     }
-
-
-//    @Override
-//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-//        return application.sources(applicationClass);
-//    }
-
 }

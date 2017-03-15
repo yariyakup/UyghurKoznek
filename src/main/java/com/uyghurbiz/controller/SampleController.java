@@ -16,25 +16,27 @@ import twitter4j.api.UsersResources;
 /**
  * Created by Yari_Dev on 10/13/15.
  */
-@RestController
+//@RestController
 public class SampleController {
-    @Autowired
-    private UsersResources twitterUserResourceService;
-    @RequestMapping("/")
-    @ResponseBody
-    public String home() {
-        return "Hello World!";
-    }
-    @RequestMapping("/user")
-    @ResponseBody
-    public ResponseList<User> user(@RequestParam(value = "user", defaultValue = "yari") String user) {
-        ResponseList< User > list = null;
-        try {
-            list = twitterUserResourceService.lookupUsers(user);
-        } catch (TwitterException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
+//    @Autowired
+//    private UsersResources twitterUserResourceService;
+//
+//    @RequestMapping("/")
+//    @ResponseBody
+//    public String home() {
+//        return "Hello World!";
+//    }
+//
+//    @RequestMapping("/user")
+//    @ResponseBody
+//    public ResponseList<User> user(@RequestParam(value = "user", defaultValue = "yari") String user) {
+//        ResponseList<User> list = null;
+//        try {
+//            list = twitterUserResourceService.lookupUsers(user);
+//        } catch (TwitterException e) {
+//            e.printStackTrace();
+//        }
+//        return list;
+//    }
 
 }
