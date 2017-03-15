@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication
 @EnableAutoConfiguration
-@ComponentScan("com.uyghurbiz")
+@ComponentScan("com.uyghurbiz.core")
 public class EngineStart {
     // private static Class<SampleController> applicationClass = SampleController.class;
 

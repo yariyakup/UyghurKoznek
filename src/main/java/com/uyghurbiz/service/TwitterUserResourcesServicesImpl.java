@@ -21,6 +21,7 @@ import java.util.List;
 /**
  * Created by Yari_Dev on 10/12/15.
  */
+@Service("twitterUserResourceService")
 public class TwitterUserResourcesServicesImpl implements UsersResources {
 
     /**

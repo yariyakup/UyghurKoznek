@@ -29,7 +29,7 @@ public class Scheduler {
     public static Logger LOGGER = LogManager.getLogger(Scheduler.class);
 
     @Autowired
-    UsersResources twitterUserResourcesServices;
+    UsersResources twitterUserResourceService;
 
     @Autowired
     Gson gson;
@@ -46,7 +46,7 @@ public class Scheduler {
             index++;
         }
         try {
-            ResponseList<User> list = twitterUserResourcesServices.lookupUsers(users);
+            ResponseList<User> list = twitterUserResourceService.lookupUsers(users);
             if (list != null) {
                 ListIterator<User> iterator = list.listIterator();
                 while (iterator.hasNext()) {
