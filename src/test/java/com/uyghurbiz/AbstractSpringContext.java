@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 /**
  * This class will wrap the spring config
+ * Yes i updated from aws
  * <p/>
  * Created by Yari_Dev on 10/15/15.
  */
