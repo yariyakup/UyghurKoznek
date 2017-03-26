@@ -52,13 +52,13 @@ public class CoreEngineConfig {
 
     private ApiInfo apiInfo() {
         ApiInfo apiInfo = new ApiInfo(
-                "My REST API",
-                "Some custom description of API.",
-                "API TOS",
+                "Twitter Rest API For Personal and Learning Only",
+                "Please dont hack, and use with Ethic",
+                "0.0.1",
                 "Terms of service",
-                "myeaddress@company.com",
+                "yariyakup@gmail.com",
                 "License of API",
-                "API license URL");
+                "http://www.apache.org/licenses/LICENSE-2.0");
         return apiInfo;
     }
 }
