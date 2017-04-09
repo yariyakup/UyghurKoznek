@@ -3,7 +3,6 @@ package com.uyghurbiz.service;
 import com.google.gson.Gson;
 import com.uyghurbiz.AbstractSpringContext;
 import com.uyghurbiz.StringUtil;
-import com.uyghurbiz.jms.MessageSender;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -28,8 +27,6 @@ public class TwitterTimelineResourcesServiceTest extends AbstractSpringContext {
     @Autowired
     Gson gson;
 
-    @Autowired
-    MessageSender messageSender;
 
     /**
      * Logger for the TestCase
@@ -44,7 +41,6 @@ public class TwitterTimelineResourcesServiceTest extends AbstractSpringContext {
             Iterator<Status> it = responseList.iterator();
             while (it.hasNext()) {
                // LOGGER.debug(gson.toJson(it.next()));
-                messageSender.sendObject(it.next());
             }
         } catch (TwitterException e) {
             e.printStackTrace();

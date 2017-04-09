@@ -1,13 +1,10 @@
 package com.uyghurbiz.scheduler;
 
 import com.google.gson.Gson;
-import com.uyghurbiz.jms.MessageSender;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import twitter4j.ResponseList;
@@ -34,8 +31,6 @@ public class Scheduler {
     @Autowired
     Gson gson;
 
-    @Autowired
-    MessageSender messageSender;
 
     @Scheduled(fixedRate = 5000)
     public void getUser() {
