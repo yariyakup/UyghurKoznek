@@ -8,14 +8,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 import twitter4j.Location;
 import twitter4j.ResponseList;
 import twitter4j.TwitterException;
@@ -26,6 +19,7 @@ import twitter4j.api.UsersResources;
  * Created by yyakup on 3/15/17.
  */
 @RestController
+@CrossOrigin
 @Api(basePath = "/user", value = "User", description = "Operations with User", produces = "application/json")
 public class TweetServiceController {
     @Autowired

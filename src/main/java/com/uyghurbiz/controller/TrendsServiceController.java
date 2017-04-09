@@ -5,10 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import twitter4j.Location;
 import twitter4j.ResponseList;
 import twitter4j.TwitterException;
@@ -18,6 +15,7 @@ import twitter4j.api.TrendsResources;
  * Created by yyakup on 3/15/17.
  */
 @RestController
+@CrossOrigin
 @Api(basePath = "/trends", value = "Trends", description = "Operations with Trends", produces = "application/json")
 public class TrendsServiceController {
     @Autowired
