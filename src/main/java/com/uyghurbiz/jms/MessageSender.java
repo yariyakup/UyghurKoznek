@@ -16,6 +16,7 @@ import javax.jws.soap.SOAPBinding;
  * Created by yyakup on 9/16/16.
  */
 @Service
+@Deprecated
 public class MessageSender {
 
     @Autowired
