@@ -79,6 +79,11 @@ public class TwitterUserResourcesServicesImpl implements UsersResources {
         return null;
     }
 
+    @Override
+    public AccountSettings updateAllowDmsFrom(String s) throws TwitterException {
+        return null;
+    }
+
     /**
      * Sets values that users are able to set under the "Account" tab of their settings page. Only the parameters specified(non-null) will be updated.
      * <br>This method calls https://api.twitter.com/1.1/account/update_profile.json

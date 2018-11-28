@@ -3,11 +3,7 @@ package com.uyghurbiz.service;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import twitter4j.DirectMessage;
-import twitter4j.Paging;
-import twitter4j.ResponseList;
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
+import twitter4j.*;
 import twitter4j.api.DirectMessagesResources;
 import java.io.InputStream;
 
@@ -74,6 +70,16 @@ public class TwitterDirectMessageServicesImpl implements DirectMessagesResources
         return null;
     }
 
+    @Override
+    public DirectMessageList getDirectMessages(int i) throws TwitterException {
+        return null;
+    }
+
+    @Override
+    public DirectMessageList getDirectMessages(int i, String s) throws TwitterException {
+        return null;
+    }
+
     /**
      * Returns a single direct message, specified by an id parameter.
      * <br>This method has not been finalized and the interface is subject to change in incompatible ways.
@@ -116,6 +122,11 @@ public class TwitterDirectMessageServicesImpl implements DirectMessagesResources
      * @since Twitter4j 2.1.0
      */
     public DirectMessage sendDirectMessage(long userId, String text) throws TwitterException {
+        return null;
+    }
+
+    @Override
+    public DirectMessage sendDirectMessage(long l, String s, long l1) throws TwitterException {
         return null;
     }
 
