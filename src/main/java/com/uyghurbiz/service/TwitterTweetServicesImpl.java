@@ -76,7 +76,12 @@ public class TwitterTweetServicesImpl implements TweetsResources {
         return null;
     }
 
-    
+    @Override
+    public Status unRetweetStatus(long l) throws TwitterException {
+        return null;
+    }
+
+
     public ResponseList<Status> lookup(long... ids) throws TwitterException {
         return null;
     }
@@ -88,6 +93,11 @@ public class TwitterTweetServicesImpl implements TweetsResources {
 
     
     public UploadedMedia uploadMedia(String fileName, InputStream media) throws TwitterException {
+        return null;
+    }
+
+    @Override
+    public UploadedMedia uploadMediaChunked(String s, InputStream inputStream) throws TwitterException {
         return null;
     }
 

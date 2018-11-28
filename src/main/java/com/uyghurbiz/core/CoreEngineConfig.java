@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import springfox.documentation.builders.PathSelectors;
@@ -24,9 +25,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Created by Yari_Dev on 10/11/15.
  */
 @Configuration("coreConfig")
-@Import({RepositoryConfig.class, TwitterServiceConfig.class, SpringMongoConfig.class})
-@ComponentScan("com.uyghurbiz.controller")
-@EnableSwagger2
+@Import({RepositoryConfig.class, TwitterServiceConfig.class})
 public class CoreEngineConfig {
 
 
@@ -41,28 +40,6 @@ public class CoreEngineConfig {
     public Gson gson() {
         Gson gson = new Gson();
         return gson;
-    }
-
-    @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
-                .build()
-                .apiInfo(apiInfo());
-    }
-
-    private ApiInfo apiInfo() {
-        ApiInfo apiInfo = new ApiInfo(
-                "Twitter Rest API For Personal and Learning Only",
-                "Please dont hack, and use with Ethic",
-                "0.0.1",
-                "Terms of service",
-                "yariyakup@gmail.com",
-                "License of API",
-                "http://www.apache.org/licenses/LICENSE-2.0");
-        return apiInfo;
     }
     @Bean
     public WebMvcConfigurer corsConfigurer() {
