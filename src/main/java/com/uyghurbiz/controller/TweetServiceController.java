@@ -26,9 +26,9 @@ public class TweetServiceController {
     private UsersResources twitterUserResourceService;
 
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    @RequestMapping(value = "/lookUpUser", method = RequestMethod.GET)
     @ResponseBody
-    @ApiOperation(value = "getUser", nickname = "users")
+    @ApiOperation(value = "lookUpUser", nickname = "lookUp")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = Location.class),
             @ApiResponse(code = 401, message = "Unauthorized"),
@@ -38,10 +38,35 @@ public class TweetServiceController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user", value = "User's name", required = true, dataType = "string", paramType = "query", defaultValue="Uyghur")
     })
-    public ResponseList<User> user(@RequestParam(value = "user", defaultValue = "Uyghur") String user) throws TwitterException {
+    public ResponseList<User> lookUpUser(@RequestParam(value = "user", defaultValue = "Uyghur") String user) throws TwitterException {
         String userTobeSearch = StringUtils.trim(user);
        return twitterUserResourceService.lookupUsers(userTobeSearch);
     }
+
+    /**
+     * Show detailed user info
+     * Visit https://api.twitter.com/1.1/users/show.json
+     * @param user
+     * @return
+     * @throws TwitterException
+     */
+    @RequestMapping(value = "/showUser", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "lookUpUser", nickname = "lookUp")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = Location.class),
+            @ApiResponse(code = 401, message = "Unauthorized"),
+            @ApiResponse(code = 403, message = "Forbidden"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "user", value = "User's name", required = true, dataType = "string", paramType = "query", defaultValue="Uyghur")
+    })
+    public User showUser(@RequestParam(value = "user", defaultValue = "Uyghur") String user) throws TwitterException {
+        String userTobeSearch = StringUtils.trim(user);
+        return twitterUserResourceService.showUser(userTobeSearch);
+    }
+
 
     @ExceptionHandler(TwitterException.class)
     public String handleException(TwitterException ex) {

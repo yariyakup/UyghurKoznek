@@ -1,5 +1,6 @@
 package com.uyghurbiz.service;
 
+import com.uyghurbiz.core.TwitterConfig;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -438,7 +439,14 @@ public class TwitterUserResourcesServicesImpl implements UsersResources {
      * @see <a href="https://dev.twitter.com/docs/api/1.1/get/users/show">GET users/show | Twitter Developers</a>
      */
     public User showUser(String screenName) throws TwitterException {
-        return null;
+        User userDetail = null;
+        try {
+            userDetail = twitter.users().showUser(screenName);
+        } catch (TwitterException e) {
+            LOGGER.error(e.getErrorMessage());
+        }
+
+        return userDetail;
     }
 
     /**

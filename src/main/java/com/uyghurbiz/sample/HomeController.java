@@ -1,4 +1,4 @@
-package com.uyghurbiz.controller;
+package com.uyghurbiz.sample;
 
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
