@@ -2,6 +2,7 @@ package com.uyghurbiz.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.User;
