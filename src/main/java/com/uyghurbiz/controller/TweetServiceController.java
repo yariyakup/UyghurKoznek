@@ -25,12 +25,17 @@ public class TweetServiceController {
     @Autowired
     private UsersResources twitterUserResourceService;
 
-
+    /**
+     * TODO: Add doc
+     * @param user
+     * @return
+     * @throws TwitterException
+     */
     @RequestMapping(value = "/lookUpUser", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation(value = "lookUpUser", nickname = "lookUp")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", response = Location.class),
+            @ApiResponse(code = 200, message = "Success", response = User.class),
             @ApiResponse(code = 401, message = "Unauthorized"),
             @ApiResponse(code = 403, message = "Forbidden"),
             @ApiResponse(code = 404, message = "Not Found"),
